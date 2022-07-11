@@ -19,6 +19,7 @@ pipeline {
     stage('Publish') {
       steps {
         sh './mvnw package'
+        archiveArtifacts 'target/*.jar'
       }
     }
 
