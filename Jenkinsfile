@@ -9,8 +9,10 @@ pipeline {
 
     stage('SonarQube') {
       steps {
-        withSonarQubeEnv 'SonarQube'
-        waitForQualityGate(credentialsId: 'SonarQube', abortPipeline: true)
+        withSonarQubeEnv('SonarQube') {
+          sh './mvnw compile'
+        }
+
       }
     }
 
