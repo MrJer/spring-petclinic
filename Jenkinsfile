@@ -10,7 +10,7 @@ pipeline {
     stage('SonarQube') {
       steps {
         withSonarQubeEnv('SonarQube') {
-          sh './mvnw compile'
+          sh './mvnw $SONAR_MAVEN_GOAL'
         }
 
       }
