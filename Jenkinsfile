@@ -20,6 +20,7 @@ pipeline {
       steps {
         sh './mvnw package'
         archiveArtifacts 'target/*.jar'
+        sh 'cp target/*.jar /artifactory'
       }
     }
 
