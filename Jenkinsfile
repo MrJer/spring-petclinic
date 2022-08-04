@@ -20,7 +20,7 @@ pipeline {
       steps {
         sh './mvnw package'
         archiveArtifacts 'target/*.jar'
-        sh 'cp target/*.jar /artifactory'
+        ansiblePlaybook(playbook: '/var/ansible/playbook.yaml', inventory: '/etc/ansible/hosts')
       }
     }
 
